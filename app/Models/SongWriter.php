@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class SongWriter extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+
+        'name',
+        'image',
+        'about',
+        'facebook',
+        'twitter',
+        'instagram'
+    ];
 }

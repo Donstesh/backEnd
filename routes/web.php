@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\WhatwedoController;
 use App\Http\Controllers\AdvertController;
+use App\Http\Controllers\SongWrittersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,7 @@ Route::get('/footer', [App\Http\Controllers\HomeController::class, 'footer'])->n
 Route::resource('about', App\Http\Controllers\AboutController::class);
 Route::resource('whatwedo', App\Http\Controllers\WhatwedoController::class);
 Route::resource('advert', App\Http\Controllers\AdvertController::class);
+Route::resource('songwritters', App\Http\Controllers\SongWrittersController::class);
 
 // Route::post('/about', [App\Http\Controllers\AboutController::class, 'update']);
 // Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
