@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\WhatwedoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +36,15 @@ Route::get('/gamesandfilms', [App\Http\Controllers\HomeController::class, 'games
 Route::get('/footer', [App\Http\Controllers\HomeController::class, 'footer'])->name('footer');
 
 Route::resource('about', App\Http\Controllers\AboutController::class);
+Route::resource('whatwedo', App\Http\Controllers\WhatwedoController::class);
 
-Route::post('/update', [App\Http\Controllers\AboutController::class, 'update']);
+// Route::post('/about', [App\Http\Controllers\AboutController::class, 'update']);
 // Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 
+
+// INSERT INTO whatwedos (title, desc)
+// VALUES ('Welcome Business Professionals and Corporate Partners!','In need of a unique sound to elevate your corporate projects or campaigns? Look no further than Spy-da Music Publishing. With a vast selection of over 300 records in our catalogue, we have the resources to find the ideal soundtrack to match your corporate identity and message. Moreover, if you're seeking a sound that's truly one of a kind, we are ready and able to create a bespoke, memorable audio experience specifically tailored to your project or campaign. For an expedited response, please use the form below. We respectfully request that only business-related inquiries are submitted. Please understand that we may not be able to respond to inquiries from the general public at this time. Thank you for considering Spy-da Music Publishing as your audio partner. We look forward to amplifying your corporate presence with the power of sound.');
+
+
+// ALTER TABLE `whatwedos`
+//   CHANGE COLUMN `desc` `desc` VARCHAR(10000);
