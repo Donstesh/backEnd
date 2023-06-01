@@ -6,6 +6,7 @@ use App\Http\Controllers\AdvertController;
 use App\Http\Controllers\SongWrittersController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\HeroController;
+use App\Http\Controllers\LicenseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,7 @@ Route::get('/nav', [App\Http\Controllers\HomeController::class, 'nav'])->name('n
 //Route::get('/whatwedo', [App\Http\Controllers\HomeController::class, 'whatwedo'])->name('whatwedo');
 //Route::get('/services', [App\Http\Controllers\HomeController::class, 'services'])->name('services');
 //Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
-Route::get('/license', [App\Http\Controllers\HomeController::class, 'license'])->name('license');
+//Route::get('/license', [App\Http\Controllers\HomeController::class, 'license'])->name('license');
 Route::get('/sync', [App\Http\Controllers\HomeController::class, 'sync'])->name('sync');
 Route::get('/songs', [App\Http\Controllers\HomeController::class, 'songs'])->name('songs');
 //Route::get('/advert', [App\Http\Controllers\HomeController::class, 'advert'])->name('advert');
@@ -45,6 +46,7 @@ Route::resource('advert', App\Http\Controllers\AdvertController::class);
 Route::resource('songwritters', App\Http\Controllers\SongWrittersController::class);
 Route::resource('service', App\Http\Controllers\ServiceController::class);
 Route::resource('hero', App\Http\Controllers\HeroController::class);
+Route::resource('license', App\Http\Controllers\LicenseController::class);
 
 // Route::post('/about', [App\Http\Controllers\AboutController::class, 'update']);
 // Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
@@ -56,7 +58,8 @@ Route::resource('hero', App\Http\Controllers\HeroController::class);
 //     ('pic_2','Music Synchronisation'),
 //     ('pic_3','Advertising and Media');
 
+// INSERT INTO licenses (title, description)
+// VALUES ('Licensing','Interested in securing a license for a track from Spy-da Recordings? To expedite your request, please ensure you fill out all necessary fields correctly. For further details, please fill out the form below. Please note that we only entertain business-related inquiries. Unfortunately, we are unable to respond to queries from the general public. Your understanding is appreciated.');
 
-
-// ALTER TABLE `whatwedos`
-//   CHANGE COLUMN `desc` `desc` VARCHAR(10000);
+// ALTER TABLE `licenses`
+//   CHANGE COLUMN `description` `description` VARCHAR(10000);
