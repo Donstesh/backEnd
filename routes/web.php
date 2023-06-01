@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\GamesandFilmsController;
+use App\Http\Controllers\SynchronisationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +36,7 @@ Route::get('/nav', [App\Http\Controllers\HomeController::class, 'nav'])->name('n
 //Route::get('/services', [App\Http\Controllers\HomeController::class, 'services'])->name('services');
 //Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 //Route::get('/license', [App\Http\Controllers\HomeController::class, 'license'])->name('license');
-Route::get('/sync', [App\Http\Controllers\HomeController::class, 'sync'])->name('sync');
+//Route::get('/sync', [App\Http\Controllers\HomeController::class, 'sync'])->name('sync');
 //Route::get('/songs', [App\Http\Controllers\HomeController::class, 'songs'])->name('songs');
 //Route::get('/advert', [App\Http\Controllers\HomeController::class, 'advert'])->name('advert');
 //Route::get('/gamesandfilms', [App\Http\Controllers\HomeController::class, 'gamesandfilms'])->name('gamesandfilms');
@@ -49,6 +50,7 @@ Route::resource('service', App\Http\Controllers\ServiceController::class);
 Route::resource('hero', App\Http\Controllers\HeroController::class);
 Route::resource('license', App\Http\Controllers\LicenseController::class);
 Route::resource('gamesandfilm', App\Http\Controllers\GamesandFilmsController::class);
+Route::resource('sync', App\Http\Controllers\SynchronisationController::class);
 
 // Route::post('/about', [App\Http\Controllers\AboutController::class, 'update']);
 // Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
@@ -60,11 +62,11 @@ Route::resource('gamesandfilm', App\Http\Controllers\GamesandFilmsController::cl
 //     ('pic_2','Music Synchronisation'),
 //     ('pic_3','Advertising and Media');
 
-// INSERT INTO game_films (title, desc)
-// VALUES ('Games and Films','Are you searching for a distinctive ');
+// INSERT INTO syncs (title, `description`)
+// VALUES ('Synchronisation','Interested in synchronisation and usage rights? When applying for synchronisation for Video, TV, Gaming or Advertising, Use the form below to enquire more. Please ensure all fields are correctly completed to receive a rapid response. Business enquiries only. We will not respond to general public enquiries.');
 
-// ALTER TABLE `game_films`
-//   CHANGE COLUMN `desc` `desc` VARCHAR(10000);
+// ALTER TABLE `syncs`
+//   CHANGE COLUMN `description` `description` VARCHAR(10000);
 
-// ALTER TABLE game_films
+// ALTER TABLE syncs
 // DROP COLUMN images;
