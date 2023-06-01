@@ -31,15 +31,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/topnav', [App\Http\Controllers\HomeController::class, 'topnav'])->name('topnav');
 Route::get('/nav', [App\Http\Controllers\HomeController::class, 'nav'])->name('nav');
-//Route::get('/hero', [App\Http\Controllers\HomeController::class, 'hero'])->name('hero');
-//Route::get('/whatwedo', [App\Http\Controllers\HomeController::class, 'whatwedo'])->name('whatwedo');
-//Route::get('/services', [App\Http\Controllers\HomeController::class, 'services'])->name('services');
-//Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
-//Route::get('/license', [App\Http\Controllers\HomeController::class, 'license'])->name('license');
-//Route::get('/sync', [App\Http\Controllers\HomeController::class, 'sync'])->name('sync');
-//Route::get('/songs', [App\Http\Controllers\HomeController::class, 'songs'])->name('songs');
-//Route::get('/advert', [App\Http\Controllers\HomeController::class, 'advert'])->name('advert');
-//Route::get('/gamesandfilms', [App\Http\Controllers\HomeController::class, 'gamesandfilms'])->name('gamesandfilms');
 Route::get('/footer', [App\Http\Controllers\HomeController::class, 'footer'])->name('footer');
 
 Route::resource('about', App\Http\Controllers\AboutController::class);
@@ -51,6 +42,7 @@ Route::resource('hero', App\Http\Controllers\HeroController::class);
 Route::resource('license', App\Http\Controllers\LicenseController::class);
 Route::resource('gamesandfilm', App\Http\Controllers\GamesandFilmsController::class);
 Route::resource('sync', App\Http\Controllers\SynchronisationController::class);
+Route::resource('songwriterssection', App\Http\Controllers\SongwritersSectionController::class);
 
 // Route::post('/about', [App\Http\Controllers\AboutController::class, 'update']);
 // Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
@@ -62,11 +54,15 @@ Route::resource('sync', App\Http\Controllers\SynchronisationController::class);
 //     ('pic_2','Music Synchronisation'),
 //     ('pic_3','Advertising and Media');
 
-// INSERT INTO syncs (title, `description`)
-// VALUES ('Synchronisation','Interested in synchronisation and usage rights? When applying for synchronisation for Video, TV, Gaming or Advertising, Use the form below to enquire more. Please ensure all fields are correctly completed to receive a rapid response. Business enquiries only. We will not respond to general public enquiries.');
+// INSERT INTO songwriters_sections (title, `description`)
+// VALUES ('Song Writters','Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old');
 
-// ALTER TABLE `syncs`
-//   CHANGE COLUMN `description` `description` VARCHAR(10000);
+// INSERT INTO adverts (title, `desc`)
+// VALUES ('Advertising and Media', 'Are you on the hunt for a fresh and unique sound for your next marketing campaign? Look no further. At Spy-da Music Publishing, we boast a diverse catalogue of over 300 records, ensuring we can find the perfect fit for your project or campaign. But that''s not all. If our extensive collection doesn''t hold the precise sound you''re envisioning, we''re fully equipped to create a unique, attention-grabbing soundtrack tailored specifically for your campaign. For a prompt response, please use the form below. We kindly ask that only business inquiries are submitted. We appreciate your understanding that we are unable to respond to inquiries from the general public at this time. Thank you for considering Spy-da Music Publishing. We look forward to making your campaign sound extraordinary.');
+
+
+// ALTER TABLE `adverts`
+//   CHANGE COLUMN `desc` `desc` VARCHAR(10000);
 
 // ALTER TABLE syncs
 // DROP COLUMN images;

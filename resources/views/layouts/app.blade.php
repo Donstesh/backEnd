@@ -66,7 +66,8 @@
                         <a class="collapse-item" href="license">License Section</a>
                         <a class="collapse-item" href="sync">Synchronisation Section</a>
                         <a class="collapse-item" href="advert">Advert and Media Section</a>
-                        <a class="collapse-item" href="songwritters">Song Writters Section</a>
+                        <a class="collapse-item" href="songwritters">Song Writters</a>
+                        <a class="collapse-item" href="songwriterssection">Song Writters Section</a>
                         <a class="collapse-item" href="gamesandfilm">Games and Films Section</a>
                         <a class="collapse-item" href="footer">Footer Section</a>
                     </div>
