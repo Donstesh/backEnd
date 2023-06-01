@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Game_film extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'desc',
+    ];
 }

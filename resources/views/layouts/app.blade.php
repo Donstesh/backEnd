@@ -67,7 +67,7 @@
                         <a class="collapse-item" href="sync">Synchronisation Section</a>
                         <a class="collapse-item" href="advert">Advert and Media Section</a>
                         <a class="collapse-item" href="songwritters">Song Writters Section</a>
-                        <a class="collapse-item" href="gamesandfilms">Games and Films Section</a>
+                        <a class="collapse-item" href="gamesandfilm">Games and Films Section</a>
                         <a class="collapse-item" href="footer">Footer Section</a>
                     </div>
                 </div>
