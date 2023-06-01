@@ -5,6 +5,7 @@ use App\Http\Controllers\WhatwedoController;
 use App\Http\Controllers\AdvertController;
 use App\Http\Controllers\SongWrittersController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\HeroController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/topnav', [App\Http\Controllers\HomeController::class, 'topnav'])->name('topnav');
 Route::get('/nav', [App\Http\Controllers\HomeController::class, 'nav'])->name('nav');
-Route::get('/hero', [App\Http\Controllers\HomeController::class, 'hero'])->name('hero');
+//Route::get('/hero', [App\Http\Controllers\HomeController::class, 'hero'])->name('hero');
 //Route::get('/whatwedo', [App\Http\Controllers\HomeController::class, 'whatwedo'])->name('whatwedo');
 //Route::get('/services', [App\Http\Controllers\HomeController::class, 'services'])->name('services');
 //Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
@@ -43,16 +44,17 @@ Route::resource('whatwedo', App\Http\Controllers\WhatwedoController::class);
 Route::resource('advert', App\Http\Controllers\AdvertController::class);
 Route::resource('songwritters', App\Http\Controllers\SongWrittersController::class);
 Route::resource('service', App\Http\Controllers\ServiceController::class);
+Route::resource('hero', App\Http\Controllers\HeroController::class);
 
 // Route::post('/about', [App\Http\Controllers\AboutController::class, 'update']);
 // Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 
 
-// INSERT INTO services (pic, title, `descrition`)
+// INSERT INTO hero_sections (image, title)
 // VALUES 
-//     ('pic_1','Licensing','Interested in licensing a Spy-da Recordings? When applying to license music please ensure all fields...'),
-//     ('pic_2','Synchronisation',' Interested in synchronisation and usage rights? When applying for synchronisation for Video, TV, Gaming or...'),
-//     ('pic_3','Advertising',' Advertisers welcome! - Looking a fresh sound for your next marking campaign? Spy-da Music Publishing...');
+//     ('pic_1','Music Licensing'),
+//     ('pic_2','Music Synchronisation'),
+//     ('pic_3','Advertising and Media');
 
 
 
