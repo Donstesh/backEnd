@@ -24,7 +24,7 @@
                 @foreach ($adverts as $advert)
                     <tr>
                         <td>{{ $advert->title }}</td>
-                        <td>{{ $advert->descption }}</td>
+                        <td>{{ $advert->desc }}</td>
                         <td>
                             <form action="{{ route('advert.destroy',$advert->id) }}" method="Post">
                                 <a class="btn btn-primary" href="{{ route('advert.edit',$advert->id) }}">Edit</a>
