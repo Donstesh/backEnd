@@ -45,9 +45,4 @@
             </div>
             <!-- End of Main Content -->
 
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
 @endsection

@@ -61,7 +61,7 @@
                         <a class="collapse-item" href="nav">NavBar Section</a>
                         <a class="collapse-item" href="hero">Hero Section</a>
                         <a class="collapse-item" href="whatwedo">What We do Section</a>
-                        <a class="collapse-item" href="services">Services Section</a>
+                        <a class="collapse-item" href="service">Services Section</a>
                         <a class="collapse-item" href="about">About Section</a>
                         <a class="collapse-item" href="license">License Section</a>
                         <a class="collapse-item" href="sync">Synchronisation Section</a>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\WhatwedoController;
 use App\Http\Controllers\AdvertController;
 use App\Http\Controllers\SongWrittersController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,7 @@ Route::get('/topnav', [App\Http\Controllers\HomeController::class, 'topnav'])->n
 Route::get('/nav', [App\Http\Controllers\HomeController::class, 'nav'])->name('nav');
 Route::get('/hero', [App\Http\Controllers\HomeController::class, 'hero'])->name('hero');
 //Route::get('/whatwedo', [App\Http\Controllers\HomeController::class, 'whatwedo'])->name('whatwedo');
-Route::get('/services', [App\Http\Controllers\HomeController::class, 'services'])->name('services');
+//Route::get('/services', [App\Http\Controllers\HomeController::class, 'services'])->name('services');
 //Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/license', [App\Http\Controllers\HomeController::class, 'license'])->name('license');
 Route::get('/sync', [App\Http\Controllers\HomeController::class, 'sync'])->name('sync');
@@ -41,13 +42,18 @@ Route::resource('about', App\Http\Controllers\AboutController::class);
 Route::resource('whatwedo', App\Http\Controllers\WhatwedoController::class);
 Route::resource('advert', App\Http\Controllers\AdvertController::class);
 Route::resource('songwritters', App\Http\Controllers\SongWrittersController::class);
+Route::resource('service', App\Http\Controllers\ServiceController::class);
 
 // Route::post('/about', [App\Http\Controllers\AboutController::class, 'update']);
 // Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 
 
-// INSERT INTO whatwedos (title, desc)
-// VALUES ('Welcome Business Professionals and Corporate Partners!','In need of a unique sound to elevate your corporate projects or campaigns? Look no further than Spy-da Music Publishing. With a vast selection of over 300 records in our catalogue, we have the resources to find the ideal soundtrack to match your corporate identity and message. Moreover, if you're seeking a sound that's truly one of a kind, we are ready and able to create a bespoke, memorable audio experience specifically tailored to your project or campaign. For an expedited response, please use the form below. We respectfully request that only business-related inquiries are submitted. Please understand that we may not be able to respond to inquiries from the general public at this time. Thank you for considering Spy-da Music Publishing as your audio partner. We look forward to amplifying your corporate presence with the power of sound.');
+// INSERT INTO services (pic, title, `descrition`)
+// VALUES 
+//     ('pic_1','Licensing','Interested in licensing a Spy-da Recordings? When applying to license music please ensure all fields...'),
+//     ('pic_2','Synchronisation',' Interested in synchronisation and usage rights? When applying for synchronisation for Video, TV, Gaming or...'),
+//     ('pic_3','Advertising',' Advertisers welcome! - Looking a fresh sound for your next marking campaign? Spy-da Music Publishing...');
+
 
 
 // ALTER TABLE `whatwedos`
