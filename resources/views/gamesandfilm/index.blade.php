@@ -4,7 +4,6 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Games And Films Section</h1>
                     @if ($message = Session::get('success'))
@@ -37,7 +36,6 @@
                     @endforeach
             </tbody>
         </table>
-        {!! $game_films->links() !!}
 
                 </div>
                 <!-- /.container-fluid -->

@@ -14,7 +14,7 @@ class GamesandFilmsController extends Controller
      */
     public function index()
     {
-        $game_films = Game_film::orderBy('id','desc')->paginate(5);
+        $game_films = Game_film::get();
         return view('gamesandfilm.index', compact('game_films'));
     }
 
@@ -56,8 +56,9 @@ class GamesandFilmsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game_film $game_film)
+    public function edit($id)
     {
+        $game_film = Game_film::find($id);;
         return view('gamesandfilm.edit',compact('game_film'));
     }
 
@@ -68,14 +69,14 @@ class GamesandFilmsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Game_film $game_film)
+    public function update(Request $request, Game_film $gamef)
     {
         $request->validate([
             'title' => 'required',
             'desc' => 'required',
         ]);
         
-        $game_film->fill($request->post())->save();
+        $gamef->fill($request->post())->save();
 
         return redirect()->route('gamesandfilm.index')->with('success','Record Has Been updated successfully');
     }

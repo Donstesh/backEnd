@@ -4,10 +4,9 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Games And Films Edit</h1>
-                    <form action="{{ route('gamesandfilm.update',$game_film->id) }}" method="POST" enctype="multipart/form-data">
+                    <h1 class="h3 mb-4 text-gray-800">Edit Games And Films </h1>
+                    <form action="{{ route('gamesandfilm.update', $game_film->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -26,7 +25,7 @@
                                     <strong>Description:</strong>
                                     <textarea class="form-control" id="form4Example3" rows="6" name="desc">{{ $game_film->desc }}</textarea>
                                     
-                                    @error('descption')
+                                    @error('desc')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
                                 </div>
