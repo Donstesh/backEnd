@@ -22,9 +22,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
+
 
 Auth::routes();
 
@@ -36,7 +39,7 @@ Route::get('/footer', [App\Http\Controllers\HomeController::class, 'footer'])->n
 Route::resource('about', App\Http\Controllers\AboutController::class);
 Route::resource('whatwedo', App\Http\Controllers\WhatwedoController::class);
 Route::resource('advert', App\Http\Controllers\AdvertController::class);
-Route::resource('songwritters', App\Http\Controllers\SongWrittersController::class);
+Route::resource('songwriter', App\Http\Controllers\SongWrittersController::class);
 Route::resource('service', App\Http\Controllers\ServiceController::class);
 Route::resource('hero', App\Http\Controllers\HeroController::class);
 Route::resource('license', App\Http\Controllers\LicenseController::class);
@@ -48,11 +51,10 @@ Route::resource('songwriterssection', App\Http\Controllers\SongwritersSectionCon
 // Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 
 
-// INSERT INTO hero_sections (image, title)
+// INSERT INTO abouts (pic, title, `descption`)
 // VALUES 
-//     ('pic_1','Music Licensing'),
-//     ('pic_2','Music Synchronisation'),
-//     ('pic_3','Advertising and Media');
+//     ('pic_2','Capacity.','We currently have over 300 records in catalogue, so are confident we can find new music that fits and suits your next major campaign.'),
+//     ('pic3','Expectation.',' We hope you enjoy the music your listening to!');
 
 // INSERT INTO songwriters_sections (title, `description`)
 // VALUES ('Song Writters','Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old');
@@ -64,5 +66,5 @@ Route::resource('songwriterssection', App\Http\Controllers\SongwritersSectionCon
 // ALTER TABLE `adverts`
 //   CHANGE COLUMN `desc` `desc` VARCHAR(10000);
 
-// ALTER TABLE syncs
-// DROP COLUMN images;
+// ALTER TABLE song_writers
+// DROP COLUMN `desc`;

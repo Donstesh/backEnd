@@ -119,30 +119,31 @@
 
     <section id="services" class="text-center">
         <div class="container">
+        @foreach ($wwds as $wwd)
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
                         <h6>What We do</h6>
-                        <h1>Welcome Business Professionals and Corporate Partners!</h1>
+                        <h1>{{ $wwd->title }}</h1>
                         <p class="mx-auto">
-                            In need of a unique sound to elevate your corporate projects or campaigns? Look no further than Spy-da Music Publishing. With a vast selection of over 300 records in our catalogue, we have the resources to find the ideal soundtrack to match your corporate identity and message.
-                            Moreover, if you're seeking a sound that's truly one of a kind, we are ready and able to create a bespoke, memorable audio experience specifically tailored to your project or campaign.
-                            For an expedited response, please use the form below. We respectfully request that only business-related inquiries are submitted. Please understand that we may not be able to respond to inquiries from the general public at this time.                            
-                            Thank you for considering Spy-da Music Publishing as your audio partner. We look forward to amplifying your corporate presence with the power of sound.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img class="image-hover"  src="img/icon1.png" alt="">
-                        <h5>Licensing</h5>
-                        <p>
-                            Interested in licensing a Spy-da Recordings? When applying to license music please ensure all fields...
+                            {{ $wwd->desc }}
                         </p>
                     </div>
                 </div>
+            </div>
+            @endforeach
+            <div class="row g-4">
+            @foreach ($services as $service)
                 <div class="col-lg-4 col-md-6">
+                    <div class="service">
+                        <img class="image-hover"  src="img/icon1.png" alt="">
+                        <h5>{{ $service->title }}</h5>
+                        <p>
+                        {{ $service->descrition }}                        </p>
+                    </div>
+                </div>
+                @endforeach
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="service">
                         <img class="image-hover" src="img/icon2.png" alt="">
                         <h5>Synchronisation</h5>
@@ -159,7 +160,7 @@
                             Advertisers welcome! - Looking a fresh sound for you next marking campaign? Spy-da Music Publishing...
                         </p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -170,17 +171,18 @@
                 <h1>About Spy-Da Music Publishing</h1>
                 <div class="col-lg-5 py-5">
                     <div class="row">
-
-                        <div class="col-12">
+                    @foreach ($abouts as $abt)
+                        <div class="col-12 mt-4">
                             <div class="info-box">
                                 <img class="image-hover" src="img/icon6.png" alt="">
                                 <div class="ms-4">
-                                    <h5>History.</h5>
-                                    <p>Spy-da Music Publishing Ltd was established in 2011 to aid publishing to Spy-da Recordings Ltd & all the music that is produced at Spy-da Productions Ltd. </p>
+                                    <h5>{{ $abt->title }}.</h5>
+                                    <p>{{ $abt->descption }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mt-4">
+                    @endforeach    
+                        <!-- <div class="col-12 mt-4">
                             <div class="info-box">
                                 <img class="image-hover" src="img/icon4.png" alt="">
                                 <div class="ms-4">
@@ -197,7 +199,7 @@
                                     <p>We hope you enjoy the music your listening to!</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -210,16 +212,17 @@
     <!-- Licensing -->
     <section id="licensing">
         <div class="container">
+        @foreach ($license as $lic)
             <div class="row text-center justify-content-center gy-4">
-                <h1 class="display-4">Licensing</h1>
+                <h1 class="display-4">{{ $lic->title }}</h1>
                 <p class="mb-0">
-                    Interested in securing a license for a track from Spy-da Recordings? To expedite your request, please ensure you fill out all necessary fields correctly. <br>
-                    For further details, please fill out the form below. Please note that we only entertain business-related inquiries. Unfortunately, we are unable to respond to queries from the general public. Your understanding is appreciated.
+                    {{ $lic->description }}
                 </p>
                 <div class="col-lg-5">               
                      <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-brand ms-lg-3">Fill Enquiry Form</a>
                 </div>
             </div>
+            @endforeach
         </div>
     </section>
 
@@ -254,15 +257,13 @@
 
     <section class="bg-light" id="portfolio">
         <div class="container">
+        @foreach ($syncs as $sync)
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
-                        <h1>Synchronisation</h1>
-                        <p class="mx-auto">Interested in synchronisation and usage rights? When applying for synchronisation for 
-                            Video, TV, Gaming or Advertising, 
-                            Use the form below to enquire more. 
-                            Please ensure all fields are correctly completed to receive a rapid response.
-                            Business enquiries only. We will not respond to general public enquiries. 
+                        <h1>{{ $sync->title }}</h1>
+                        <p class="mx-auto">    
+                            {{ $sync->description }}
                         </p>
                         <div class="col-lg-5">               
                             <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-brand ms-lg-3">Fill Enquiry Form</a>
@@ -270,6 +271,7 @@
                     </div>
                 </div>
             </div>
+        @endforeach
         </div>
         <div id="projects-slider" class="owl-theme owl-carousel">
             <div class="project">
@@ -325,18 +327,19 @@
 
     <section id="team">
         <div class="container">
+        @foreach ($adverts as $advert)
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
-                        <h6>Advertising and Media</h6>
+                        <h6>{{ $advert->title }}</h6>
                         <h1>Advertising and Media</h1>
-                        <p class="mx-auto">Are you on the hunt for a fresh and unique sound for your next marketing campaign? Look no further. At Spy-da Music Publishing, we boast a diverse catalogue of over 300 records, ensuring we can find the perfect fit for your project or campaign. 
-                            But that's not all. If our extensive collection doesn't hold the precise sound you're envisioning, we're fully equipped to create a unique, attention-grabbing soundtrack tailored specifically for your campaign. 
-                            For a prompt response, please use the form below. We kindly ask that only business inquiries are submitted. We appreciate your understanding that we are unable to respond to inquiries from the general public at this time.                             
-                            Thank you for considering Spy-da Music Publishing. We look forward to making your campaign sound extraordinary. </p>
+                        <p class="mx-auto">
+                            {{ $advert->desc }} 
+                        </p>
                     </div>
                 </div>
             </div>
+            @endforeach
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-8">
                     <div class="team-member">
@@ -368,16 +371,19 @@
 
     <section id="songwritters" >
         <div class="container">
+        @foreach ($songwritersections as $swrsec)
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
                         <h6>Wanna Meet our Song Writters</h6>
-                        <h1>Song Writters</h1>
-                        <p class="mx-auto">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                            roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
+                        <h1>{{ $swrsec->title }}</h1>
+                        <p class="mx-auto">
+                            {{ $swrsec->description }}
+                        </p>
                     </div>
                 </div>
             </div>
+        @endforeach
             <div class="row justify-content-center ">
                 <div class="col-lg-4 col-md-8">
                     <div class="team-member">
@@ -483,18 +489,19 @@
 
     <section id="game">
         <div class="container">
+        @foreach ($gamesandfilmssection as $gafsec)
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
-                        <h6>Games and Films</h6>
+                        <h6>{{ $gafsec->title }}</h6>
                         <h1>Games and Films</h1>
-                        <p class="mx-auto">Are you searching for a distinctive and captivating soundtrack for your next project? Your search ends at Spy-da Music Publishing. With a robust catalogue of over 300 records, we're confident we can find the perfect audio to complement and enhance your game or film.
-                            Even more, if our extensive library doesn't capture the exact ambiance you're aiming for, we're fully prepared to create a unique, immersive score specifically tailored for your project.                             
-                            For a swift response, please use the form below. We kindly request that only business-related inquiries are made. Please note that we cannot respond to inquiries from the general public at this time.                            
-                            Thank you for considering Spy-da Music Publishing. We're excited to bring your game or film to life with the power of sound. </p>
+                        <p class="mx-auto">
+                            {{ $gafsec->desc }}
+                        </p>
                     </div>
                 </div>
             </div>
+        @endforeach
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-8">
                     <div class="team-member">
