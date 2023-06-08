@@ -19,7 +19,7 @@
                     <th>Description</th>
                     <th width="280px">Action</th>
                 </tr>
-            </thead>
+            </thead> 
             <tbody>
                 @foreach ($syncs as $sync)
                     <tr>
