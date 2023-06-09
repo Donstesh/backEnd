@@ -68,14 +68,17 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required',
             'descrition' => 'required',
-        ]);
-        
-        $service->fill($request->post())->save();
+        ]); 
+
+        $service = Service::find($id);
+        $service->title = $request->input('title');
+        $service->descrition = $request->input('descrition');
+        $service->save();
 
         return redirect()->route('service.index')->with('success','Record Has Been updated successfully');
     }
