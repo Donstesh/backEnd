@@ -25,7 +25,7 @@ class HeroController extends Controller
      */
     public function create()
     {
-        //
+        return view('hero.create');
     }
 
     /**
@@ -36,7 +36,25 @@ class HeroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+                $request->validate([
+                    
+                    'title' => 'required',
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+        
+                $input = $request->all();
+        
+                if ($image = $request->file('image')) {
+                    $destinationPath = 'img/';
+                    $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                    $image->move($destinationPath, $profileImage);
+                    $input['image'] = "$profileImage";
+                }
+          
+                HeroSection::create($input);
+           
+                return redirect()->route('hero.index')
+                                ->with('success','Slider created successfully.');
     }
 
     /**
@@ -47,7 +65,7 @@ class HeroController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -69,16 +87,25 @@ class HeroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HeroSection $herosection, $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'image' => 'required',
             'title' => 'required',
         ]);
         $herosection = HeroSection::find($id);
-        $herosection->image = $request->input('image');
-        $herosection->title = $request->input('title');
-        $herosection->save();
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'img/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+        
+        $herosection->update($input);
 
         return redirect()->route('hero.index')->with('success','Record Has Been updated successfully');
     }

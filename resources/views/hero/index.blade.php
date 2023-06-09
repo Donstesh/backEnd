@@ -4,7 +4,12 @@
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
+    <div class="col-lg-12 margin-tb">
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('hero.create') }}"> Add New</a>
+            </div>
+            <br>
+        </div>
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800">Hero Section Sliders</h1>
                     @if ($message = Session::get('success'))
@@ -23,7 +28,7 @@
             <tbody>
                 @foreach ($heros as $hero)
                     <tr>
-                        <td>{{ $hero->image }}</td>
+                        <td><img src="/img/{{ $hero->image }}" width="100px"></td>
                         <td>{{ $hero->title }}</td>
                         <td>
                             <form action="{{ route('hero.destroy',$hero->id) }}" method="Post">
