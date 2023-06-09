@@ -41,8 +41,8 @@
                         <td>{{ $songWriter->twitter }}</td>
                         <td>{{ $songWriter->instagram }}</td>
                         <td>
-                            <form action="" method="Post">
-                                <a class="btn btn-primary" href="">Edit</a>
+                            <form action="{{ route('songwriter.destroy',$songWriter->id) }}" method="Post">
+                                <a class="btn btn-primary" href="{{ route('songwriter.edit',$songWriter->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>

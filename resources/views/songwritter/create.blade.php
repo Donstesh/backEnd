@@ -13,9 +13,8 @@
                         </div>
                     </div>
                     <br>
-                    <form method="POST" action="{{ url('songwriter/store') }}" >
+                    <form method="POST" action="{{ route('songwriter.store') }}" enctype="multipart/form-data">
                         @csrf  
-                        @method('PUT')
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">

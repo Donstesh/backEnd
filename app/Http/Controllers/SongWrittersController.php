@@ -14,7 +14,7 @@ class SongWrittersController extends Controller
      */
     public function index()
     {
-        $songWriters = SongWriter::get();
+        $songWriters = SongWriter::orderBy('id','desc')->paginate(5);
         return view('songwritter.index', compact('songWriters'));
     }
 
@@ -36,29 +36,30 @@ class SongWrittersController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
 
+        $request->validate([
+                            
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'about' => 'required',
             'facebook' => 'required',
             'twitter' => 'required',
             'instagram' => 'required',
         ]);
-        $writer_profile = new SongWriter();
+
         $input = $request->all();
-    
+
         if ($image = $request->file('image')) {
             $destinationPath = 'img/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
-      
-        //SongWriter::create($input);
-        $writer_profile->save(); //persist the data
-        return view('songwritter/index')
-                ->with('success','SongWriter created successfully.');
+
+        SongWriter::create($input);
+
+        return redirect()->route('songwriter.index')
+                        ->with('success','Song Writer Added successfully.');
     }
 
     /**
@@ -81,7 +82,7 @@ class SongWrittersController extends Controller
     public function edit($id)
     {
         $writer_profile = SongWriter::find($id);
-        return view('songwritter.edit',compact('songWriter'));
+        return view('songwritter.edit',compact('writer_profile'));
     }
 
     /**
@@ -91,20 +92,32 @@ class SongWrittersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SongWriter $songWriter)
+    public function update(Request $request, SongWriter $writer_profile, $id)
     {
         $request->validate([
+                            
             'name' => 'required',
-            'image' => 'required',
             'about' => 'required',
             'facebook' => 'required',
             'twitter' => 'required',
             'instagram' => 'required',
         ]);
-        
-        $songWriter->fill($request->post())->save();
+        $writer_profile = SongWriter::find($id);
+        $input = $request->all();
 
-        return view('songwritter/index')->with('success','Record Has Been updated successfully');
+        if ($image = $request->file('image')) {
+            $destinationPath = 'img/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+        
+        $writer_profile->update($input);
+  
+        return redirect()->route('songwriter.index')
+                        ->with('success','Song Writer Updated successfully.');
     }
 
     /**
@@ -118,5 +131,6 @@ class SongWrittersController extends Controller
         $writer_profile = SongWriter::findOrFail($id);
         $writer_profile->delete();
         return back();
+        
     }
 }
