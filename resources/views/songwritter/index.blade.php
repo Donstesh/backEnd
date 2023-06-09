@@ -7,6 +7,12 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800">SongWritters</h1>
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('songwriter.create') }}"> Add New</a>
+            </div>
+            <br>
+        </div>
 
                     @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -29,14 +35,14 @@
                 @foreach ($songWriters as $songWriter)
                     <tr>
                         <td>{{ $songWriter->name }}</td>
-                        <td>{{ $songWriter->image }}</td>
+                        <td><img src="/img/{{ $songWriter->image }}" width="100px"></td>
                         <td>{{ $songWriter->about }}</td>
                         <td>{{ $songWriter->facebook }}</td>
                         <td>{{ $songWriter->twitter }}</td>
                         <td>{{ $songWriter->instagram }}</td>
                         <td>
-                            <form action="{{ route('songwritter.destroy',$songWriter->id) }}" method="Post">
-                                <a class="btn btn-primary" href="{{ route('songwritter.edit',$songWriter->id) }}">Edit</a>
+                            <form action="" method="Post">
+                                <a class="btn btn-primary" href="">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -46,7 +52,6 @@
                     @endforeach
             </tbody>
         </table>
-        {!! $songWriters->links() !!}
 
                 </div>
                 <!-- /.container-fluid -->

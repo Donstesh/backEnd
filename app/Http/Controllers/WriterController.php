@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\SongWriter;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
-class SongWrittersController extends Controller
+class WriterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class SongWrittersController extends Controller
      */
     public function index()
     {
-        $songWriters = SongWriter::get();
+        $songWriters = SongWriter::orderBy('id','desc');
         return view('songwritter.index', compact('songWriters'));
     }
 
@@ -34,7 +35,31 @@ class SongWrittersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+
+    //         'name' => 'required',
+    //         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+    //         'about' => 'required',
+    //         'facebook' => 'required',
+    //         'twitter' => 'required',
+    //         'instagram' => 'required',
+    //     ]);
+
+    //     $writer = new SongWriter();
+    //     $imageName = time().'.'.$request->image->extension();
+
+    //     $input = $request->all();
+    //     $writer->save(); //persist the data
+
+    //     //SongWriter::create($request->post())->save();
+    //     //$songWriter->fill($request->post())->save();
+
+    //     return view('songwriter.index')->with('success','Record Has Been updated successfully');
+    // }
+
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
 
@@ -45,7 +70,7 @@ class SongWrittersController extends Controller
             'twitter' => 'required',
             'instagram' => 'required',
         ]);
-        $writer_profile = new SongWriter();
+    
         $input = $request->all();
     
         if ($image = $request->file('image')) {
@@ -55,10 +80,10 @@ class SongWrittersController extends Controller
             $input['image'] = "$profileImage";
         }
       
-        //SongWriter::create($input);
-        $writer_profile->save(); //persist the data
-        return view('songwritter/index')
-                ->with('success','SongWriter created successfully.');
+        SongWriter::create($input);
+       
+        return redirect()->route('songwriter.index')
+                        ->with('success','SongWriter created successfully.');
     }
 
     /**
@@ -81,7 +106,7 @@ class SongWrittersController extends Controller
     public function edit($id)
     {
         $writer_profile = SongWriter::find($id);
-        return view('songwritter.edit',compact('songWriter'));
+        return view('hero.edit',compact('writer_profile'));
     }
 
     /**
@@ -91,20 +116,9 @@ class SongWrittersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SongWriter $songWriter)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'image' => 'required',
-            'about' => 'required',
-            'facebook' => 'required',
-            'twitter' => 'required',
-            'instagram' => 'required',
-        ]);
-        
-        $songWriter->fill($request->post())->save();
-
-        return view('songwritter/index')->with('success','Record Has Been updated successfully');
+        //
     }
 
     /**

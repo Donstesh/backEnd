@@ -9,6 +9,7 @@ use App\Http\Controllers\HeroController;
 use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\GamesandFilmsController;
 use App\Http\Controllers\SynchronisationController;
+use App\Http\Controllers\WriterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +48,13 @@ Route::resource('gamesandfilm', App\Http\Controllers\GamesandFilmsController::cl
 Route::resource('sync', App\Http\Controllers\SynchronisationController::class);
 Route::resource('songwriterssection', App\Http\Controllers\SongwritersSectionController::class);
 
+    // Route::get('/songwriter','WriterController@index')->name('songwriter.index');
+    // Route::get('/songwriter/{id}/edit','WriterController@edit')->name('songwriter.edit');
+    // Route::get('/songwriter/{id}/delete','WriterController@destroy')->name('songwriter.destroy');
+    // Route::get('songwriter/create','WriterController@create')->name('songwriter.create');
+    // Route::post('/songwriter/save','WriterController@store')->name('songwriter.store');
+    // Route::post('/songwriter/update','WriterController@update')->name('songwriter.update');
+
 // Route::post('/about', [App\Http\Controllers\AboutController::class, 'update']);
 // Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 
@@ -61,7 +69,6 @@ Route::resource('songwriterssection', App\Http\Controllers\SongwritersSectionCon
 
 // INSERT INTO adverts (title, `desc`)
 // VALUES ('Advertising and Media', 'Are you on the hunt for a fresh and unique sound for your next marketing campaign? Look no further. At Spy-da Music Publishing, we boast a diverse catalogue of over 300 records, ensuring we can find the perfect fit for your project or campaign. But that''s not all. If our extensive collection doesn''t hold the precise sound you''re envisioning, we''re fully equipped to create a unique, attention-grabbing soundtrack tailored specifically for your campaign. For a prompt response, please use the form below. We kindly ask that only business inquiries are submitted. We appreciate your understanding that we are unable to respond to inquiries from the general public at this time. Thank you for considering Spy-da Music Publishing. We look forward to making your campaign sound extraordinary.');
-
 
 // ALTER TABLE `adverts`
 //   CHANGE COLUMN `desc` `desc` VARCHAR(10000);

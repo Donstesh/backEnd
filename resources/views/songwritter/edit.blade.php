@@ -8,7 +8,7 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Edit SongWritter</h1>
 
-                    <form action="{{ route('songwritter.update',$songWriter->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('songwriter.update', $songWriter->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -25,7 +25,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Image:</strong>
-                                    <input type="text" name="image" value="{{ $songWriter->image }}" class="form-control"
+                                    <input type="file" name="image" value="{{ $songWriter->image }}" class="form-control"
                                         placeholder="Image">
                                     @error('image')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -37,7 +37,7 @@
                                     <strong>Description:</strong>
                                     <textarea class="form-control" id="form4Example3" rows="6" name="about">{{ $songWriter->about }}</textarea>
                                     
-                                    @error('descption')
+                                    @error('about')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
                                 </div>
