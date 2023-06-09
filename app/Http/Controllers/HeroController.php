@@ -56,8 +56,9 @@ class HeroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(HeroSection $hero)
+    public function edit($id)
     {
+        $hero = HeroSection::find($id);
         return view('hero.edit',compact('hero'));
     }
 
@@ -68,14 +69,16 @@ class HeroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HeroSection $herosection)
+    public function update(Request $request, HeroSection $herosection, $id)
     {
         $request->validate([
             'image' => 'required',
             'title' => 'required',
         ]);
-        
-        $herosection->fill($request->post())->save();
+        $herosection = HeroSection::find($id);
+        $herosection->image = $request->input('image');
+        $herosection->title = $request->input('title');
+        $herosection->save();
 
         return redirect()->route('hero.index')->with('success','Record Has Been updated successfully');
     }
@@ -88,6 +91,8 @@ class HeroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $herosection = HeroSection::findOrFail($id);
+        $herosection->delete();
+        return back();
     }
 }

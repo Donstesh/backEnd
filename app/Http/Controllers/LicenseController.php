@@ -77,7 +77,7 @@ class LicenseController extends Controller
         
         $license->fill($request->post())->save();
 
-        return redirect()->route('licence.index')->with('success','Record Has Been updated successfully');
+        return redirect()->route('license.index')->with('success','Record Has Been updated successfully');
     }
 
     /**
